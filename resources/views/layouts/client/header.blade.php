@@ -10,37 +10,26 @@
     <div class="container-fluid topbar bg-dark d-none d-lg-block">
         <div class="container px-0">
             <div class="topbar-top d-flex justify-content-between flex-lg-wrap">
-                <div class="top-info flex-grow-0">
-                    <span class="rounded-circle btn-sm-square bg-primary me-2">
-                        <i class="fas fa-bolt text-white"></i>
-                    </span>
-                    <div class="pe-2 me-3 border-end border-white d-flex align-items-center">
-                        <p class="mb-0 text-white fs-6 fw-normal">Trending</p>
-                    </div>
-                    <div class="overflow-hidden" style="width: 735px;">
-                        <div id="note" class="ps-2">
-                            <img src="{{asset("client/img/features-fashion.jpg")}}" class="img-fluid rounded-circle border border-3 border-primary me-2" style="width: 30px; height: 30px;" alt="">
-                            <a href="#">
-                                <p class="text-white mb-0 link-hover">Newsan unknown printer took a galley of type andscrambled Newsan.</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="top-link flex-lg-wrap">
-                    <i class="fas fa-calendar-alt text-white border-end border-secondary pe-2 me-2"> <span class="text-body">Tuesday, Sep 12, 2024</span></i>
-                    <div class="d-flex icon">
-                        <p class="mb-0 text-white me-2">Follow Us:</p>
-                        <a href="" class="me-2"><i class="fab fa-facebook-f text-body link-hover"></i></a>
-                        <a href="" class="me-2"><i class="fab fa-twitter text-body link-hover"></i></a>
-                        <a href="" class="me-2"><i class="fab fa-instagram text-body link-hover"></i></a>
-                        <a href="" class="me-2"><i class="fab fa-youtube text-body link-hover"></i></a>
-                        <a href="" class="me-2"><i class="fab fa-linkedin-in text-body link-hover"></i></a>
-                        <a href="" class="me-2"><i class="fab fa-skype text-body link-hover"></i></a>
-                        <a href="" class=""><i class="fab fa-pinterest-p text-body link-hover"></i></a>
-                    </div>
+                <!-- Nội dung khác của topbar (nếu có) -->
+                
+                <!-- Đưa các nút Đăng ký và Đăng nhập sang góc bên phải -->
+                <div class="d-flex align-items-center ms-auto">
+                    @if (Auth::user())
+                    {{Auth::user()->name}}
+                   <form action="{{route('logout')}}" method="post">
+                    @csrf
+                    <button class="btn btn-danger me-2">Log out</button>
+                   </form>
+                    @else
+                    <a href="{{route('login')}}"><button class="btn btn-primary me-2">Log in</button></a>
+                    <!-- Button Đăng ký -->
+                    <a href="{{route('register')}}"><button class="btn btn-secondary">Register</button></a>
+                    @endif
                 </div>
             </div>
         </div>
+    
+        
     </div>
     <div class="container-fluid bg-light">
         <div class="container px-0">

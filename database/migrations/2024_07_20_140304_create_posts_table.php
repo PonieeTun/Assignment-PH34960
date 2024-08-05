@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignIdFor(Categories::class)->constrained();
             $table->foreignIdFor(User::class)->constrained();
             $table->string('title');
-            $table->string('description');
+            $table->string('img');
+            $table->string('content');
             $table->integer('views');
             $table->timestamps(); 
         });
